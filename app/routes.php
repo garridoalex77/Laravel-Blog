@@ -15,3 +15,13 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/resume', function()
+{
+    return 'Resume';
+});
+
+Route::get('/portfolio', function()
+{
+    return 'Portfolio';
+});
