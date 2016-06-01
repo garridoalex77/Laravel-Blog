@@ -26,7 +26,7 @@ Route::get('/portfolio', function()
     return 'Portfolio';
 });
 
-Route::get('/rolldice/{guess?}', function($guess = 'Guess a number 1-6')
+Route::get('/rolldice/{guess?}', function($guess = 'Take a guess')
 {
     $roll = mt_rand(1, 6);
     if ($guess == $roll)
@@ -37,11 +37,11 @@ Route::get('/rolldice/{guess?}', function($guess = 'Guess a number 1-6')
     {
         $message = 'Try again';
     }
-    $data = array(
+    $data = [
         'guess' => $guess,
         'roll' => $roll,
         'message' => $message
-        );
+        ];
     
     return View::make('roll-dice')->with($data);
 });
