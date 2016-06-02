@@ -1,0 +1,72 @@
+body {
+    background-image: url("/img/GoTbg.png");
+}
+
+h1 {
+    margin-left: 100px;
+    font-weight: 2em;
+    color: white;
+}
+
+#title {
+    float: left;
+}
+
+#score {
+    margin-left: 80px;
+    float: left;
+}
+
+#timer {
+    margin-left: 40px;
+    float: left;
+}
+
+#start {
+    background: linear-gradient(to bottom,
+        #4c4c4c 0%,#595959 12%,#666666 25%,#474747
+        39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b
+        76%,#1c1c1c 91%,#131313 100%);
+    border-radius: 10px;
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+    padding: 10px 40px 10px 40px;
+    margin-left: 250px;
+    width: 300px;
+    outline: none;
+    color: white;
+}
+
+#highScore {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 600px; 
+}
+
+#grid {
+    float: left;
+    margin-left: 100px;
+    padding: 100px;
+    padding-top: 10px;
+    height: 500px;
+    width: 500px;
+}
+
+.square {
+    background-color: rgba(130, 130, 130, .3);
+    border: 1px solid black;
+    width: 90px;
+    height: 100px;
+    float: left;
+    cursor: url('/img/crow.png'), auto;
+}
+
+.square:nth-child(4n+1) {
+    clear: left;
+}
+
+.pop {
+    background-repeat: no-repeat;
+    background-position: center center;
+}
