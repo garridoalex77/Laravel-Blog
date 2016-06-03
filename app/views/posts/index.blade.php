@@ -6,7 +6,10 @@
 
 @section('content') 
     @foreach ($posts as $post)
-        <h1><a href="{{{action('PostsController@show', $post->id)}}}"> {{{ $post->title }}} </a></h1>
-        <h3> {{{ $post->content }}} </h3>
+        <div class="container">
+            <h1><a href="{{{action('PostsController@show', $post->id)}}}"> {{{ $post->title }}} </a></h1>
+            <h3 class="bg-primary"> {{{ $post->content }}} </h3>
+        </div>
     @endforeach
+    <p>{{ $posts->links() }}</p>
 @stop
