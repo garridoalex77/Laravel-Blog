@@ -1,6 +1,6 @@
 <?php
 // function for validate!!!!! reduce repeated code
-class PostsController extends \BaseController {
+class PostsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,6 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
+		//how to use eager loading with paginate
 		$posts = Post::paginate(4);
 
 		return View::make('posts.index')->with('posts', $posts);
@@ -46,6 +47,8 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
 			$post->save();
+			Log::info($post);
+			Session::flash('message', 'Post created');
 			return Redirect::action('PostsController@show', $post->id);
 	    }
 	}
@@ -59,7 +62,7 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		return View::make('posts.show')->with('post', $post);
 	}

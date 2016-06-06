@@ -6,7 +6,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
-    <link rel="icon" href="/favicon.ico">
+
 </head>
 <body>
 
@@ -55,6 +55,12 @@
 	    </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<div class="container">
+	@if (Session::has('message'))
+		{{{Session::get('message') }}}
+	@endif
     @yield('content')
+</div>
+<script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>
