@@ -1,5 +1,5 @@
 <?php
-
+// function for validate!!!!! reduce repeated code
 class PostsController extends \BaseController {
 
 	/**
@@ -73,7 +73,9 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return 'Show a form for editing a specific post';
+		$post = Post::find($id);
+
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 
@@ -85,7 +87,21 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+	    // attempt validation
+	    if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+	        // validation succeeded, create and save the post
+	        $post = Post::find($id);
+			$post->title = Input::get('title');
+			$post->content = Input::get('content');
+			$post->save();
+			return Redirect::action('PostsController@show', $post->id);
+	    }
 	}
 
 
@@ -97,7 +113,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$post = Post::find($id);
+		$post->delete();
+		return Redirect::action('PostsController@index');
 	}
 
 
