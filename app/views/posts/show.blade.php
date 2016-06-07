@@ -7,6 +7,8 @@
 @section('content')
 <h1> {{{ $post->title }}} </h1>
 <h3> {{{ $post->content }}} </h3>
+<img src= "{{{ $post->img }}}">
+
 <footer> Written by: {{{ $post->user->username }}} </footer>
 <div class="row">
     <div class="col-xs-2">

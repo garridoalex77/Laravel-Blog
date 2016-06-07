@@ -53,9 +53,16 @@ class PostsController extends BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 	        // validation succeeded, create and save the post
+	        
+	        $image = Input::file('img');
+	        $originalName = $image->getClientOriginalName();
+	        $imagePath = public_path() . '/img/';
+	        $image->move($imagePath, $originalName);
+			
 			$post = new Post();
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
+			$post->img =  "/img/" . $originalName; 
 			$post->user_id = Auth::id();
 			$post->save();
 			Log::info($post);
