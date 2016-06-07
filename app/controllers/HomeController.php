@@ -20,6 +20,11 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 	
+	public function showLogin()
+	{
+		return View::make('login');
+	}
+
 	public function showResume()
 	{
 		return View::make('resume');
@@ -50,5 +55,28 @@ class HomeController extends BaseController {
 	public function showSimplesimon()
 	{
 		return View::make('simplesimon');
+	}
+
+	public function login()
+	{
+		$email = Input::get('email');
+		$password = Input::get('password');
+		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+			Session::flash('success message', 'Login Successful');
+			$loggedInUser = Auth::user();
+		    return Redirect::action('PostsController@index');
+		} else {
+			Session::flash('fail message', 'Login Failed');
+		    return View::make('login');
+		}
+	}
+
+	public function logout()
+	{
+		if (Auth::check()) {
+			Auth::logout();
+			Session::flash('logout message', 'Logged Out');
+			return Redirect::action('PostsController@index');
+		}
 	}
 }

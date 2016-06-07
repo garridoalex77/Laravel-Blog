@@ -12,15 +12,17 @@
     <div class="col-xs-2">
         <button class="btn btn-default"><a href="{{ URL::previous() }}">Back</a></button>
     </div>
-    <div class="col-xs-2">
-        {{ Form::model($post, array('action' => array('PostsController@edit', $post->id), 'method' => 'GET')) }}
-        {{ Form::submit('Edit', array('class' => 'btn btn-default')) }}
-        {{ Form::close() }}
-    </div>
-    <div class="col-xs-2">
-        {{ Form::model($post, array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE', 'id' => 'delete-form')) }}
-        {{ Form::submit('Delete', array('class' => 'btn btn-default')) }}
-        {{ Form::close() }}
-    </div>
+    @if (Auth::check())
+        <div class="col-xs-2">
+            {{ Form::model($post, array('action' => array('PostsController@edit', $post->id), 'method' => 'GET')) }}
+            {{ Form::submit('Edit', array('class' => 'btn btn-default')) }}
+            {{ Form::close() }}
+        </div>
+        <div class="col-xs-2">
+            {{ Form::model($post, array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE', 'id' => 'delete-form')) }}
+            {{ Form::submit('Delete', array('class' => 'btn btn-default')) }}
+            {{ Form::close() }}
+        </div>
+    @endif
 </div>
 @stop

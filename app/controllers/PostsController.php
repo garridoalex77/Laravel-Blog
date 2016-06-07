@@ -2,6 +2,16 @@
 // function for validate!!!!! reduce repeated code
 class PostsController extends BaseController {
 
+    public function __construct()
+    {
+        $this->beforeFilter('auth', array(
+        	'except' => array(
+        		'index',
+        		'show'
+        	)
+        ));
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,7 +20,7 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//how to use eager loading with paginate
-		$posts = Post::paginate(4);
+		$posts = Post::with('user')->paginate(4);
 
 		return View::make('posts.index')->with('posts', $posts);
 	}
@@ -46,6 +56,7 @@ class PostsController extends BaseController {
 			$post = new Post();
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
+			$post->user_id = Auth::id();
 			$post->save();
 			Log::info($post);
 			Session::flash('message', 'Post created');

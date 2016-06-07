@@ -17,9 +17,9 @@
         {{ Form::text('title', null, array('class' => 'form-control')) }}
     </div>
     <div class="form-group">
-    {{ Form::label('content', 'Content')}}
-    {{ $errors->first('content', '<span class="help-block text-danger">:message</span>') }}
-    {{ Form::textarea('content', null, array('class' => 'form-control'))}}
+        {{ Form::label('content', 'Content')}}
+        {{ $errors->first('content', '<span class="help-block text-danger">:message</span>') }}
+        {{ Form::textarea('content', null, array('class' => 'form-control'))}}
     </div> 
     {{ Form::submit('Submit', array('class' => 'btn btn-default')) }}
     {{ Form::close() }}

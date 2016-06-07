@@ -5,6 +5,7 @@
     <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Sarina' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
 </head>
@@ -22,14 +23,13 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        </button>
-	        <a class="navbar-brand" href="/posts">Home</a>
+	        <a class="navbar-brand" href="/">Home</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-		        <li class="active">{{ HTML::link(action('PostsController@create'), 'Create')}}</li>
-		        <li><a href="#">Link2</a></li>
+		        <li><a href="/posts">Blog</a></li>
 	        </ul>
 	        
 	        <form class="navbar-form navbar-left" role="search">
@@ -40,12 +40,18 @@
 	        </form>
 	        
 	        <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Link3</a></li>
+	        @if (Auth::check())
+		        <li>{{ HTML::link(action('PostsController@create'), 'Create Post')}}</li>
+		        <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+		    @else
+		    	<li><a href="{{ action('HomeController@showLogin') }}">Login</a></li>
+		    @endif
+
 		        <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
 	            <ul class="dropdown-menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
+		            <li><a href="/whackamole">Whackamole</a></li>
+		            <li><a href="/simplesimon">Simon Says</a></li>
 		            <li><a href="#">Something else here</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="#">Separated link</a></li>
@@ -56,8 +62,12 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-	@if (Session::has('message'))
-		{{{Session::get('message') }}}
+	@if (Session::has('success message'))
+		<div class="alert alert-success">{{{Session::get('success message') }}}</div>
+	@elseif (Session::has('fail message'))
+		<div class="alert alert-warning">{{{Session::get('fail message') }}}</div>
+	@elseif (Session::has('logout message'))
+		<div class="alert alert-success">{{{Session::get('logout message') }}}</div>
 	@endif
     @yield('content')
 </div>
