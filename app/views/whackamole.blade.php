@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Whack-A-Mole</title>
+@extends('layouts.master')
+
+@section('title')
+    Whack-A-Mole
+@stop
+
+@section('head')
     <link rel="stylesheet" href="/css/whackamole.css">
-</head>
-<body>
-    <h1 id="title">Whack-A-Something</h1>
+@stop
+
+@section('content')
+    <h1 id="title">Whack-A-House</h1>
     <h1 id="score">Score: </h1>
     <h1 id="timer">Time: </h1>
     <button id="start">Start</button>
@@ -30,5 +34,4 @@
     </div>
 <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
 <script src="/js/whackamole.js"></script>
-</body>
-</html> 
+@stop

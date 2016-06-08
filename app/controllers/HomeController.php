@@ -57,6 +57,11 @@ class HomeController extends BaseController {
 		return View::make('simplesimon');
 	}
 
+	public function showWeather()
+	{
+		return View::make('weather_map');
+	}
+
 	public function login()
 	{
 		$email = Input::get('email');

@@ -6,7 +6,12 @@
 
 @section('content')
 <div class="row">
-    <h1 class="col-xs-10 col-xs-offset-1" id="welcome">Welcome </h1>
+    <div class="">
+        <h1 id="welcome" class="mainFont">Hello, my name is Alex Garrido</h1>
+    </div>
+    <div>
+        <h3 class="mainFont">Welcome to my site</h3>
+    </div>
 </div>
 @stop
     

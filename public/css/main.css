@@ -1,13 +1,10 @@
-/*.bg-primary {
-    border-radius: 4px;
-}*/
-
 #pug {
     border-radius: 10px;
     margin: 0 auto;
 }
 
-#welcome {
-    font-family: 'Sarina', cursive;
-    font-size: 8em;
+.mainFont {
+    font-family: 'Josefin Sans', sans-serif;
 }
+
+body {}

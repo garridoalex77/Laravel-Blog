@@ -12,6 +12,13 @@ class PostsController extends BaseController {
         ));
     }
 
+    public function validator()
+    {
+    	$validator = Validator::make(Input::all(), Post::$rules);
+    	if ($validator->fails()) {
+    		return Redirect::back()->withInput()->withErrors($validator);	
+    	}
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -21,7 +28,6 @@ class PostsController extends BaseController {
 	{
 		//how to use eager loading with paginate
 		$posts = Post::with('user')->paginate(4);
-
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -44,31 +50,22 @@ class PostsController extends BaseController {
 	 */
 	public function store()
 	{
-	    // create the validator
-	    $validator = Validator::make(Input::all(), Post::$rules);
-
-	    // attempt validation
-	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        return Redirect::back()->withInput()->withErrors($validator);
-	    } else {
-	        // validation succeeded, create and save the post
-	        
+		$this->validator();
+		$post = new Post();
+		if (Input::hasFile('img')) {
 	        $image = Input::file('img');
 	        $originalName = $image->getClientOriginalName();
 	        $imagePath = public_path() . '/img/';
 	        $image->move($imagePath, $originalName);
-			
-			$post = new Post();
-			$post->title = Input::get('title');
-			$post->content = Input::get('content');
 			$post->img =  "/img/" . $originalName; 
-			$post->user_id = Auth::id();
-			$post->save();
-			Log::info($post);
-			Session::flash('message', 'Post created');
-			return Redirect::action('PostsController@show', $post->id);
-	    }
+		}
+		$post->title = Input::get('title');
+		$post->content = Input::get('content');
+		$post->user_id = Auth::id();
+		$post->save();
+		Log::info($post);
+		Session::flash('message', 'Post created');
+		return Redirect::action('PostsController@show', $post->id);
 	}
 
 
@@ -81,7 +78,6 @@ class PostsController extends BaseController {
 	public function show($id)
 	{
 		$post = Post::findOrFail($id);
-
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -95,7 +91,6 @@ class PostsController extends BaseController {
 	public function edit($id)
 	{
 		$post = Post::find($id);
-
 		return View::make('posts.edit')->with('post', $post);
 	}
 
@@ -108,21 +103,12 @@ class PostsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		
-		$validator = Validator::make(Input::all(), Post::$rules);
-
-	    // attempt validation
-	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
-	        return Redirect::back()->withInput()->withErrors($validator);
-	    } else {
-	        // validation succeeded, create and save the post
-	        $post = Post::find($id);
-			$post->title = Input::get('title');
-			$post->content = Input::get('content');
-			$post->save();
-			return Redirect::action('PostsController@show', $post->id);
-	    }
+        $this->validator();
+        $post = Post::find($id);
+		$post->title = Input::get('title');
+		$post->content = Input::get('content');
+		$post->save();
+		return Redirect::action('PostsController@show', $post->id);
 	}
 
 

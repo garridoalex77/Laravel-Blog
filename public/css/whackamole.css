@@ -41,16 +41,16 @@ h1 {
 #highScore {
     position: absolute;
     margin-top: 100px;
-    margin-left: 600px; 
+    margin-left: 650px; 
 }
 
 #grid {
+    position: absolute;
     float: left;
     margin-left: 100px;
+    margin-top: 180px;
     padding: 100px;
     padding-top: 10px;
-    height: 500px;
-    width: 500px;
 }
 
 .square {
