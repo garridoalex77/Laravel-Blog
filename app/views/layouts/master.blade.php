@@ -8,20 +8,20 @@
     
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-    
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
     @yield('head')
 </head>
 <body>
 @include('partials.navbar')
 <div class="container">
-	@if (Session::has('success message'))
-		<div class="alert alert-success">{{{Session::get('success message') }}}</div>
-	@elseif (Session::has('fail message'))
-		<div class="alert alert-warning">{{{Session::get('fail message') }}}</div>
-	@elseif (Session::has('logout message'))
-		<div class="alert alert-success">{{{Session::get('logout message') }}}</div>
-	@endif
+    @if (Session::has('success message'))
+        <div class="alert alert-success">{{{Session::get('success message') }}}</div>
+    @elseif (Session::has('fail message'))
+        <div class="alert alert-warning">{{{Session::get('fail message') }}}</div>
+    @elseif (Session::has('logout message'))
+        <div class="alert alert-success">{{{Session::get('logout message') }}}</div>
+    @endif
     @yield('content')
 </div>
 <script src="{{ asset('/js/main.js') }}"></script>

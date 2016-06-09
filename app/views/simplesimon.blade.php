@@ -3,9 +3,8 @@
 @section('head')
     <link rel="stylesheet" href="/css/simon.css">
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
-    <meta name="viewport" content="width=device-width">
 @stop
-
+<!-- i broke it -->
 @section('title')
     Simon Game
 @stop
@@ -23,8 +22,8 @@
             <div id="yellow" class="buttons"></div>
         </div>
         <div class="row">
-            <div id="blue"class="buttons"></div>
-            <div id="green"class="buttons"></div>
+            <div id="blue" class="buttons"></div>
+            <div id="green" class="buttons"></div>
         </div>
         </div>
     </div>
