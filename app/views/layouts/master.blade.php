@@ -14,7 +14,6 @@
 </head>
 <body>
 @include('partials.navbar')
-<div class="container">
     @if (Session::has('success message'))
         <div class="alert alert-success">{{{Session::get('success message') }}}</div>
     @elseif (Session::has('fail message'))
@@ -22,8 +21,9 @@
     @elseif (Session::has('logout message'))
         <div class="alert alert-success">{{{Session::get('logout message') }}}</div>
     @endif
+
     @yield('content')
-</div>
+
 <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>
