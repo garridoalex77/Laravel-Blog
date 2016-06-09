@@ -1,5 +1,4 @@
 <?php
-// function for validate!!!!! reduce repeated code
 class PostsController extends BaseController {
 
     public function __construct()
@@ -27,7 +26,12 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//how to use eager loading with paginate
-		$posts = Post::with('user')->paginate(4);
+		if (Input::has('q')) {
+			$searchForm = Input::get('q');
+			$posts = Post::where('title', 'like', '%$searchForm%')->paginate(4);
+		} else {
+			$posts = Post::with('user')->paginate(4);
+		}
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
