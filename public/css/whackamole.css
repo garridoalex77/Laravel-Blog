@@ -46,7 +46,7 @@ h1 {
 
 #grid {
     position: absolute;
-    float: left;
+    /*float: left;*/
     margin-left: 100px;
     margin-top: 180px;
     padding: 100px;
@@ -62,9 +62,9 @@ h1 {
     cursor: url('/img/crow.png'), auto;
 }
 
-.square:nth-child(4n+1) {
+/*.square:nth-child(4n+1) {
     clear: left;
-}
+}*/
 
 .pop {
     background-repeat: no-repeat;

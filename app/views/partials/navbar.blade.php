@@ -39,7 +39,7 @@
                     <li><a href="/simplesimon">Simon Says</a></li>
                     <li><a href="/weathermap">Weather Map</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
                 </ul>
                 </li>
             </ul>

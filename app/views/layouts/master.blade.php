@@ -5,8 +5,7 @@
     
     <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
@@ -14,25 +13,27 @@
 </head>
 <body>
 @include('partials.navbar')
-<div class="container">
-    @if (Session::has('success message'))
-        <div class="alert alert-success">{{{Session::get('success message') }}}</div>
-    @elseif (Session::has('fail message'))
-        <div class="alert alert-warning">{{{Session::get('fail message') }}}</div>
-    @elseif (Session::has('logout message'))
-        <div class="alert alert-success">{{{Session::get('logout message') }}}</div>
-    @endif
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
-    <!-- Login Modal -->
-    <!-- <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-      <div class="modal-dialog modal">
-        <div class="modal-content">
-          ...
-        </div>
-      </div>
-    </div> -->
+<div class="background">
+    <div class="container-fluid">
+        @if (Session::has('success message'))
+            <div class="alert alert-success">{{{Session::get('success message') }}}</div>
+        @elseif (Session::has('fail message'))
+            <div class="alert alert-warning">{{{Session::get('fail message') }}}</div>
+        @elseif (Session::has('logout message'))
+            <div class="alert alert-success">{{{Session::get('logout message') }}}</div>
+        @endif
+        <!-- Login Modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
+        <!-- <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal">
+            <div class="modal-content">
+              ...
+            </div>
+          </div>
+        </div> -->
 
-    @yield('content')
+        @yield('content')
+    </div>
 </div>
 <script src="{{ asset('/js/main.js') }}"></script>
 </body>
