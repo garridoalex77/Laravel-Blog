@@ -34,6 +34,7 @@ img {
 }
 
 #box {
+    width: 100%;
     margin-left: 250px;
     margin-top: 40px;
     position: absolute;
@@ -157,11 +158,10 @@ img {
     h1 {
         margin: 0px;
     }
-    
+
     #box {
         margin-left: 0px;
-        border-radius: 0px;
-        width: 100%;
+        position: relative;
     }
 
     #title {

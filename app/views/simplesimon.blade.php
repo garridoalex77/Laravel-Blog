@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/css/simon.css">
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 @stop
-<!-- i broke it -->
 @section('title')
     Simon Game
 @stop

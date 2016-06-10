@@ -12,4 +12,8 @@
 
     $('#delete-form').on('submit', confirmDelete);
 
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+
 })();

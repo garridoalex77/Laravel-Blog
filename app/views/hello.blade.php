@@ -11,6 +11,7 @@
     </div>
     <div>
         <h3 class="mainFont">Welcome to my site</h3>
+        <h3>Under Construction</h3>
     </div>
 </div>
 @stop
