@@ -22,16 +22,6 @@
         @elseif (Session::has('logout message'))
             <div class="alert alert-success">{{{Session::get('logout message') }}}</div>
         @endif
-        <!-- Login Modal -->
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
-        <!-- <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-          <div class="modal-dialog modal">
-            <div class="modal-content">
-              ...
-            </div>
-          </div>
-        </div> -->
-
         @yield('content')
     </div>
 </div>

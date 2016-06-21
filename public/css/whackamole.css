@@ -3,23 +3,23 @@ body {
 }
 
 h1 {
-    margin-left: 100px;
+    /*margin-left: 100px;*/
     font-weight: 2em;
     color: white;
 }
 
 #title {
-    float: left;
+    /*float: left;*/
 }
 
 #score {
-    margin-left: 80px;
-    float: left;
+    /*margin-left: 80px;*/
+    /*float: left;*/
 }
 
 #timer {
-    margin-left: 40px;
-    float: left;
+    /*margin-left: 40px;*/
+    /*float: left;*/
 }
 
 #start {
@@ -29,28 +29,28 @@ h1 {
         76%,#1c1c1c 91%,#131313 100%);
     border-radius: 10px;
     font-size: 1.5em;
-    float: left;
-    clear: left;
+    /*float: left;*/
+    /*clear: left;*/
     padding: 10px 40px 10px 40px;
-    margin-left: 250px;
+    /*margin-left: 250px;*/
     width: 300px;
     outline: none;
     color: white;
 }
 
 #highScore {
-    position: absolute;
-    margin-top: 100px;
-    margin-left: 650px; 
+    /*position: absolute;*/
+    /*margin-top: 100px;*/
+    /*margin-left: 650px; */
 }
 
 #grid {
-    position: absolute;
+    /*position: absolute;*/
     /*float: left;*/
-    margin-left: 100px;
-    margin-top: 180px;
-    padding: 100px;
-    padding-top: 10px;
+    /*margin-left: 100px;*/
+    /*margin-top: 180px;*/
+    /*padding: 100px;*/
+    /*padding-top: 10px;*/
 }
 
 .square {
