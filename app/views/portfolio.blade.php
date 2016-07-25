@@ -25,6 +25,10 @@
         <a href="/weathermap"><h1>Weather Map:</h1></a>
         <a href="/weathermap"><img class="img-responsive img-thumbnail" src="/img/map.png"></a>
     </div>
+    <div class="col-md-3">
+        <a href="/final"><h1>Final Project:</h1></a>
+        <a href="/final"><img class="img-responsive img-thumbnail" src="/img/map.png"></a>
+    </div>
 
 </div>
 </div>

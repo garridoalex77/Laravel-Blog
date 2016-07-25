@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+<img id="tree" src="/img/tree.jpg">
 <div class="row">
     <div class="">
         <h1 id="welcome" class="mainFont">Hello, my name is Alex Garrido</h1>

@@ -31,6 +31,10 @@ Route::get('/weathermap', 'HomeController@showWeather');
 
 Route::get('/simplesimon', 'HomeController@showSimplesimon');
 
+Route::get('/posts/manage', 'PostsController@getManage');
+
+Route::get('/posts/lists', 'PostsController@getList');
+
 Route::resource('/posts', 'PostsController');
 
 

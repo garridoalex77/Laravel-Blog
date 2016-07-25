@@ -18,6 +18,17 @@ class PostsController extends BaseController {
     		return Redirect::back()->withInput()->withErrors($validator);	
     	}
     }
+
+    public function getManage()
+    {
+    	//get req
+    }
+
+    public function getList() 
+    {
+    	// get req
+    	// Response::json()
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -25,7 +36,6 @@ class PostsController extends BaseController {
 	 */
 	public function index()
 	{
-		//how to use eager loading with paginate
 		if (Input::has('q')) {
 			$searchForm = Input::get('q');
 			$posts = Post::where('title', 'like', '%$searchForm%')->paginate(4);

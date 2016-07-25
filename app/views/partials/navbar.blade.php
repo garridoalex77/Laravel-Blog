@@ -15,6 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/posts">Blog</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
             </ul>
             
             <form class="navbar-form navbar-left" role="search">
