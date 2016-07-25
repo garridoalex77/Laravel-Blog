@@ -13,7 +13,11 @@
 }
 
 body {
-    background-image: url('/img/ravenna.png');
+    background-color: mintcream;
+}
+
+#tree {
+    width: 100%;
 }
 
 
